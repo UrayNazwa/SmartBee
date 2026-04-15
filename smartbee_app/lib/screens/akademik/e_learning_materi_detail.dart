@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkademikMateriDetail extends StatelessWidget {
   final String title;
@@ -14,7 +15,7 @@ class AkademikMateriDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: ListView(
         physics: const BouncingScrollPhysics(), // Efek scroll yang lebih smooth
@@ -25,7 +26,7 @@ class AkademikMateriDetail extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(51, 129, 96, 45),
+              color: AppColors.primary.withOpacity(0.2),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Stack(
@@ -47,14 +48,14 @@ class AkademikMateriDetail extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     Text(
                       'Siti Rahma',
                       style: GoogleFonts.poppins(
                         fontSize: 20,
-                        color: const Color.fromARGB(204, 45, 27, 16),
+                        color: AppColors.textPrimary.withOpacity(0.8),
                       ),
                     ),
                   ],
@@ -67,7 +68,7 @@ class AkademikMateriDetail extends StatelessWidget {
                       vertical: 10,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(204, 255, 255, 255),
+                      color: Colors.white.withOpacity(0.8),
                       borderRadius: BorderRadius.circular(12),
                     ),
                     child: Text(
@@ -75,7 +76,7 @@ class AkademikMateriDetail extends StatelessWidget {
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ),
@@ -108,14 +109,14 @@ class AkademikMateriDetail extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 22,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF2D1B10),
+            color: AppColors.textPrimary,
           ),
         ),
         const SizedBox(height: 20),
         Container(
           padding: const EdgeInsets.all(15),
           decoration: BoxDecoration(
-            color: const Color(0xFF718664),
+            color: AppColors.success,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -147,20 +148,20 @@ class AkademikMateriDetail extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold,
               fontSize: 18,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
             decoration: BoxDecoration(
-              color: const Color(0xFFFCDAD7),
+              color: AppColors.error.withOpacity(0.1),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Text(
               'To Do',
               style: GoogleFonts.poppins(
                 fontSize: 14,
-                color: const Color(0xFFD32F2F),
+                color: AppColors.error,
                 fontWeight: FontWeight.bold,
               ),
             ),

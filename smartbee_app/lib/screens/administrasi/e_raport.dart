@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AdministrasiERaport extends StatefulWidget {
   const AdministrasiERaport({super.key});
@@ -26,7 +27,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
             width: 300,
             padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5F1EB),
+              color: AppColors.surfaceLight,
               borderRadius: BorderRadius.circular(20),
               border: Border.all(
                 color: const Color.fromARGB(51, 0, 0, 0),
@@ -39,7 +40,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                 Container(
                   padding: const EdgeInsets.all(10),
                   decoration: const BoxDecoration(
-                    color: Color(0xFF718664),
+                    color: AppColors.success,
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(Icons.check, color: Colors.white, size: 30),
@@ -81,7 +82,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
             width: 500,
             padding: const EdgeInsets.all(30),
             decoration: BoxDecoration(
-              color: const Color(0xFFF5F1EB),
+              color: AppColors.surfaceLight,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Column(
@@ -139,7 +140,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFE8E1D9),
+                    color: AppColors.background.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(25),
                   ),
                   child: Row(
@@ -174,7 +175,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: SingleChildScrollView(
         child: Column(
@@ -191,7 +192,7 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                       style: GoogleFonts.poppins(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     Text(
@@ -290,9 +291,12 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
             Container(
               padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: const Color(0xFF718664),
+                color: AppColors.success,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black.withOpacity(0.4), width: 1),
+                border: Border.all(
+                  color: Colors.black.withOpacity(0.4),
+                  width: 1,
+                ),
               ),
               child: Icon(icon, color: Colors.white),
             ),
@@ -410,8 +414,8 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                     ),
                     decoration: BoxDecoration(
                       color: item['status'] == 'Naik'
-                          ? const Color.fromARGB(25, 76, 175, 80)
-                          : const Color.fromARGB(25, 244, 67, 54),
+                          ? AppColors.success.withOpacity(0.1)
+                          : AppColors.error.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: Row(
@@ -423,8 +427,8 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                               : Icons.trending_down,
                           size: 14,
                           color: item['status'] == 'Naik'
-                              ? Colors.green
-                              : Colors.red,
+                              ? AppColors.success
+                              : AppColors.error,
                         ),
                         const SizedBox(width: 5),
                         Text(
@@ -432,8 +436,8 @@ class _AdministrasiERaportState extends State<AdministrasiERaport> {
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             color: item['status'] == 'Naik'
-                                ? Colors.green
-                                : Colors.red,
+                                ? AppColors.success
+                                : AppColors.error,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

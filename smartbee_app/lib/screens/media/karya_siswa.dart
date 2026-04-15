@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class MediaKaryaSiswa extends StatefulWidget {
   final Function(String) onSearch;
@@ -92,7 +93,7 @@ class _MediaKaryaSiswaState extends State<MediaKaryaSiswa> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -108,7 +109,7 @@ class _MediaKaryaSiswaState extends State<MediaKaryaSiswa> {
                     style: GoogleFonts.poppins(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
@@ -224,7 +225,7 @@ class _MediaKaryaSiswaState extends State<MediaKaryaSiswa> {
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 1,
@@ -235,7 +236,7 @@ class _MediaKaryaSiswaState extends State<MediaKaryaSiswa> {
                     width: double.infinity,
                     padding: const EdgeInsets.symmetric(vertical: 8),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFE0E0E0).withOpacity(0.8),
+                      color: AppColors.surface.withOpacity(0.8),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Text(
@@ -266,13 +267,13 @@ class _MediaKaryaSiswaState extends State<MediaKaryaSiswa> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFF81602D).withOpacity(0.5),
+          color: AppColors.primary.withOpacity(0.5),
           width: 1.2,
         ),
       ),
       child: Row(
         children: [
-          const Icon(Icons.search, size: 18, color: Color(0xFF81602D)),
+          const Icon(Icons.search, size: 18, color: AppColors.primary),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(

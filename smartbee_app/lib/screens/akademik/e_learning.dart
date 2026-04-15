@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkademikELearning extends StatefulWidget {
   final Function(String) onMateriTap;
@@ -235,7 +236,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
     bool isTeacher = widget.userData['role'] == 'guru';
 
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: _currentPage == 0
           ? _buildMainELearning(isTeacher)
@@ -255,7 +256,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
             style: GoogleFonts.poppins(
               fontSize: 36,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: 25),
@@ -275,23 +276,23 @@ class _AkademikELearningState extends State<AkademikELearning> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.1),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black.withOpacity(0.1)),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             children: [
-              const Icon(Icons.flash_on, color: Color(0xFF81602D)),
+              const Icon(Icons.flash_on, color: AppColors.primary),
               const SizedBox(width: 10),
               Text(
                 'PORTAL MANAJEMEN GURU',
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF81602D),
+                  color: AppColors.primary,
                 ),
               ),
             ],
@@ -302,12 +303,12 @@ class _AkademikELearningState extends State<AkademikELearning> {
             style: GoogleFonts.poppins(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
           ),
           Text(
             'Unggah materi baru, dan pantau proses beajar seluruh siswa anda.',
-            style: GoogleFonts.poppins(color: Colors.black54),
+            style: GoogleFonts.poppins(color: AppColors.textSecondary),
           ),
           const SizedBox(height: 20),
           Align(
@@ -320,7 +321,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                 style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFF81602D),
+                backgroundColor: AppColors.primary,
                 foregroundColor: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -361,7 +362,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF2D1B10),
+                color: AppColors.textPrimary,
               ),
             ),
             TextButton(
@@ -369,7 +370,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               child: Text(
                 _showAllTasks ? 'LIHAT SEDIKIT TUGAS' : 'LIHAT SEMUA TUGAS',
                 style: GoogleFonts.poppins(
-                  color: const Color(0xFF81602D),
+                  color: AppColors.primary,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -422,7 +423,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: Colors.black.withOpacity(0.05)),
+          border: Border.all(color: AppColors.textPrimary.withOpacity(0.05)),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -439,7 +440,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                       title,
                       style: GoogleFonts.poppins(
                         fontSize: 12,
-                        color: Colors.grey[400],
+                        color: AppColors.textMuted,
                         fontWeight: FontWeight.w500,
                       ),
                     ),
@@ -448,12 +449,12 @@ class _AkademikELearningState extends State<AkademikELearning> {
                       style: GoogleFonts.poppins(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                   ],
                 ),
-                Icon(icon, color: const Color(0xFF81602D), size: 30),
+                Icon(icon, color: AppColors.primary, size: 30),
               ],
             ),
           ],
@@ -464,15 +465,15 @@ class _AkademikELearningState extends State<AkademikELearning> {
 
   Widget _buildTaskCard(Map<String, String> task) {
     Color statusColor = task['status'] == 'PERLU DINILAI'
-        ? Colors.red.withOpacity(0.7)
-        : Colors.green.withOpacity(0.7);
+        ? AppColors.error.withOpacity(0.7)
+        : AppColors.success.withOpacity(0.7);
 
     return Container(
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: Colors.black.withOpacity(0.1)),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -480,7 +481,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Icon(Icons.assignment, color: Color(0xFF2D1B10)),
+              const Icon(Icons.assignment, color: AppColors.textPrimary),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
@@ -504,14 +505,17 @@ class _AkademikELearningState extends State<AkademikELearning> {
             style: GoogleFonts.poppins(
               fontSize: 16,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           Text(
             task['class']!,
-            style: GoogleFonts.poppins(fontSize: 12, color: Colors.grey[600]),
+            style: GoogleFonts.poppins(
+              fontSize: 12,
+              color: AppColors.textMuted,
+            ),
           ),
           const Spacer(),
           Row(
@@ -519,13 +523,13 @@ class _AkademikELearningState extends State<AkademikELearning> {
             children: [
               Row(
                 children: [
-                  const Icon(Icons.group, size: 16, color: Colors.grey),
+                  const Icon(Icons.group, size: 16, color: AppColors.textMuted),
                   const SizedBox(width: 5),
                   Text(
                     task['progress']!,
                     style: GoogleFonts.poppins(
                       fontSize: 12,
-                      color: Colors.grey[600],
+                      color: AppColors.textMuted,
                     ),
                   ),
                 ],
@@ -535,7 +539,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                 child: Text(
                   'PERIKSA',
                   style: GoogleFonts.poppins(
-                    color: const Color(0xFF81602D),
+                    color: AppColors.primary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -562,7 +566,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               style: GoogleFonts.poppins(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF2D1B10),
+                color: AppColors.textPrimary,
               ),
             ),
           ],
@@ -605,9 +609,9 @@ class _AkademikELearningState extends State<AkademikELearning> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: const Color.fromARGB(127, 255, 255, 255),
+          color: Colors.white.withOpacity(0.5),
           borderRadius: BorderRadius.circular(20),
-          border: Border.all(color: Colors.black.withOpacity(0.1)),
+          border: Border.all(color: AppColors.textPrimary.withOpacity(0.1)),
         ),
         child: Column(
           children: [
@@ -617,7 +621,9 @@ class _AkademikELearningState extends State<AkademikELearning> {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.black.withOpacity(0.1)),
+                  border: Border.all(
+                    color: AppColors.textPrimary.withOpacity(0.1),
+                  ),
                 ),
                 child: Center(
                   child: materi['image'] != null
@@ -631,14 +637,14 @@ class _AkademikELearningState extends State<AkademikELearning> {
                             errorBuilder: (context, error, stackTrace) => Icon(
                               Icons.menu_book_rounded,
                               size: 70,
-                              color: Colors.grey[300],
+                              color: AppColors.surfaceDark.withOpacity(0.3),
                             ),
                           ),
                         )
                       : Icon(
                           Icons.menu_book_rounded,
                           size: 70,
-                          color: Colors.grey[300],
+                          color: AppColors.surfaceDark.withOpacity(0.3),
                         ),
                 ),
               ),
@@ -652,7 +658,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.bold,
                       fontSize: 13,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 2,
@@ -667,7 +673,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                         materi['time']!,
                         style: GoogleFonts.poppins(
                           fontSize: 10,
-                          color: Colors.grey[600],
+                          color: AppColors.textMuted,
                         ),
                       ),
                     ],
@@ -707,7 +713,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
             decoration: BoxDecoration(
-              color: const Color(0xFFBCA88E).withOpacity(0.3),
+              color: AppColors.surfaceDark.withOpacity(0.3),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(
@@ -728,14 +734,14 @@ class _AkademikELearningState extends State<AkademikELearning> {
                           style: GoogleFonts.poppins(
                             fontSize: 28,
                             fontWeight: FontWeight.bold,
-                            color: const Color(0xFF2D1B10),
+                            color: AppColors.textPrimary,
                           ),
                         ),
                         Text(
                           materiData['teacher']!,
                           style: GoogleFonts.poppins(
                             fontSize: 20,
-                            color: Colors.grey[800],
+                            color: AppColors.textPrimary.withOpacity(0.8),
                           ),
                         ),
                       ],
@@ -756,7 +762,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                     style: GoogleFonts.poppins(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                 ),
@@ -775,7 +781,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
                   style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF81602D),
+                  backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -796,8 +802,8 @@ class _AkademikELearningState extends State<AkademikELearning> {
                   style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFFBCA88E),
-                  foregroundColor: const Color(0xFF2D1B10),
+                  backgroundColor: AppColors.borderLight,
+                  foregroundColor: AppColors.textPrimary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
@@ -832,16 +838,16 @@ class _AkademikELearningState extends State<AkademikELearning> {
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D1B10),
+                  color: AppColors.textPrimary,
                 ),
               ),
               TextButton.icon(
                 onPressed: () => _showEditChapterDialog(chapter),
-                icon: const Icon(Icons.edit_note, color: Colors.black87),
+                icon: const Icon(Icons.edit_note, color: AppColors.textPrimary),
                 label: Text(
                   'EDIT',
                   style: GoogleFonts.poppins(
-                    color: Colors.black87,
+                    color: AppColors.textPrimary,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -852,7 +858,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: const Color(0xFF718664),
+              color: AppColors.success,
               borderRadius: BorderRadius.circular(15),
             ),
             child: Column(
@@ -880,18 +886,22 @@ class _AkademikELearningState extends State<AkademikELearning> {
       ),
       child: Row(
         children: [
-          Icon(icon, color: const Color(0xFF718664), size: 28),
+          Icon(icon, color: AppColors.success, size: 28),
           const SizedBox(width: 15),
           Text(
             label,
             style: GoogleFonts.poppins(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
           ),
           const Spacer(),
-          const Icon(Icons.arrow_forward_ios, color: Colors.grey, size: 20),
+          const Icon(
+            Icons.arrow_forward_ios,
+            color: AppColors.textMuted,
+            size: 20,
+          ),
         ],
       ),
     );
@@ -903,14 +913,14 @@ class _AkademikELearningState extends State<AkademikELearning> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(6),
-        border: Border.all(color: const Color.fromARGB(51, 158, 158, 158)),
+        border: Border.all(color: AppColors.textMuted.withOpacity(0.2)),
       ),
       child: Text(
         label,
         style: GoogleFonts.poppins(
           fontSize: 9,
           fontWeight: FontWeight.bold,
-          color: const Color(0xFF81602D),
+          color: AppColors.primary,
         ),
       ),
     );
@@ -938,7 +948,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
         padding: const EdgeInsets.all(30),
         width: 500,
         decoration: BoxDecoration(
-          color: const Color(0xFFE1D9CD),
+          color: AppColors.background,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Column(
@@ -953,12 +963,12 @@ class _AkademikELearningState extends State<AkademikELearning> {
                   style: GoogleFonts.poppins(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 IconButton(
                   onPressed: () => Navigator.pop(context),
-                  icon: const Icon(Icons.close, color: Color(0xFF2D1B10)),
+                  icon: const Icon(Icons.close, color: AppColors.textPrimary),
                 ),
               ],
             ),
@@ -992,7 +1002,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF718664),
+                  backgroundColor: AppColors.success,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -1028,7 +1038,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
           width: 120,
           padding: const EdgeInsets.symmetric(vertical: 12),
           decoration: BoxDecoration(
-            color: const Color(0xFFBCA88E),
+            color: AppColors.borderLight,
             borderRadius: BorderRadius.circular(10),
           ),
           child: Center(
@@ -1037,7 +1047,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF2D1B10),
+                color: AppColors.textPrimary,
               ),
             ),
           ),
@@ -1050,7 +1060,7 @@ class _AkademikELearningState extends State<AkademikELearning> {
               hintText: hint,
               hintStyle: GoogleFonts.poppins(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: AppColors.textMuted,
               ),
               filled: true,
               fillColor: Colors.white.withOpacity(0.5),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class MediaKaryaSiswaDetail extends StatelessWidget {
   final Map<String, String> karya;
@@ -14,7 +15,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,7 +24,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF2D1B10)),
+                icon: const Icon(Icons.arrow_back_ios, color: AppColors.textPrimary),
                 onPressed: onBack,
               ),
               const SizedBox(width: 10),
@@ -32,7 +33,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D1B10),
+                  color: AppColors.textPrimary,
                 ),
               ),
             ],
@@ -54,7 +55,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         // Menambahkan Border di frame Preview
                         border: Border.all(
-                          color: Colors.black.withOpacity(0.4),
+                          color: AppColors.textPrimary.withOpacity(0.4),
                           width: 1.5,
                         ),
                         boxShadow: [
@@ -79,7 +80,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
                             style: GoogleFonts.poppins(
                               fontSize: 18,
                               fontWeight: FontWeight.w600,
-                              color: Colors.black87,
+                              color: AppColors.textPrimary,
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -87,7 +88,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
                             'Klik untuk membuka file',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
-                              color: Colors.grey[600],
+                              color: AppColors.textSecondary,
                             ),
                           ),
                           const SizedBox(height: 30),
@@ -103,7 +104,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
                             icon: const Icon(Icons.open_in_new),
                             label: const Text('Buka PDF'),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFF81602D),
+                              backgroundColor: AppColors.primary,
                               foregroundColor: Colors.white,
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 25,
@@ -159,7 +160,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
           style: GoogleFonts.poppins(
             fontSize: 14,
             fontWeight: FontWeight.w600,
-            color: const Color(0xFF81602D),
+            color: AppColors.primary,
           ),
         ),
         const SizedBox(height: 8),
@@ -171,7 +172,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
             // Mempertegas border di setiap frame info
             border: Border.all(
-              color: Colors.black87.withOpacity(0.5),
+              color: AppColors.textPrimary.withOpacity(0.5),
               width: 1.2,
             ),
           ),
@@ -179,7 +180,7 @@ class MediaKaryaSiswaDetail extends StatelessWidget {
             value,
             style: GoogleFonts.poppins(
               fontSize: 16,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
               height: 1.5,
             ),
             maxLines: isLongText ? 10 : 1,

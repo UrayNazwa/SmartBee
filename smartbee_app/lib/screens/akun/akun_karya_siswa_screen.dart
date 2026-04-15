@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkunKaryaSiswa extends StatelessWidget {
   final VoidCallback onBack;
@@ -44,7 +45,7 @@ class AkunKaryaSiswa extends StatelessWidget {
     ];
 
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         children: [
@@ -61,7 +62,7 @@ class AkunKaryaSiswa extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 ),
               ),
@@ -84,11 +85,11 @@ class AkunKaryaSiswa extends StatelessWidget {
                   onTap: () => onKaryaTap(item),
                   child: Container(
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(127, 255, 255, 255),
+                      color: Colors.white.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(20),
                       // PERBAIKAN: Menambahkan border hitam transparan yang sama dengan frame lain
                       border: Border.all(
-                        color: const Color.fromARGB(76, 0, 0, 0),
+                        color: AppColors.textPrimary.withOpacity(0.3),
                         width: 1,
                       ),
                     ),
@@ -102,7 +103,7 @@ class AkunKaryaSiswa extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                               // Menambahkan border halus juga di dalam frame gambar agar lebih rapi
                               border: Border.all(
-                                color: const Color.fromARGB(30, 0, 0, 0),
+                                color: AppColors.textPrimary.withOpacity(0.1),
                                 width: 1,
                               ),
                             ),
@@ -119,7 +120,8 @@ class AkunKaryaSiswa extends StatelessWidget {
                                             return Icon(
                                               Icons.art_track,
                                               size: 100,
-                                              color: Colors.grey[300],
+                                              color: AppColors.surfaceDark
+                                                  .withOpacity(0.3),
                                             );
                                           },
                                     ),
@@ -127,7 +129,9 @@ class AkunKaryaSiswa extends StatelessWidget {
                                 : Icon(
                                     Icons.art_track,
                                     size: 100,
-                                    color: Colors.grey[300],
+                                    color: AppColors.surfaceDark.withOpacity(
+                                      0.3,
+                                    ),
                                   ),
                           ),
                         ),
@@ -150,10 +154,13 @@ class AkunKaryaSiswa extends StatelessWidget {
                                   vertical: 8,
                                 ),
                                 decoration: BoxDecoration(
-                                  color: const Color(0xFFE8E1D9), // Warna disesuaikan ke earth tone
+                                  color: AppColors
+                                      .surfaceLight, // Warna disesuaikan ke earth tone
                                   borderRadius: BorderRadius.circular(8),
                                   border: Border.all(
-                                    color: const Color.fromARGB(50, 0, 0, 0),
+                                    color: AppColors.textPrimary.withOpacity(
+                                      0.2,
+                                    ),
                                   ),
                                 ),
                                 child: Text(

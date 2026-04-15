@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class MediaVideoPembelajaran extends StatefulWidget {
   final Function(String) onSearch;
@@ -78,7 +79,7 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,13 +95,13 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                     style: GoogleFonts.poppins(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
                     'Video Pembelajaran untuk Jenjang SMA',
                     style: GoogleFonts.poppins(
-                      color: Colors.black54,
+                      color: AppColors.textSecondary,
                       fontSize: 14,
                     ),
                   ),
@@ -139,7 +140,10 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black.withOpacity(0.3), width: 1),
+        border: Border.all(
+          color: AppColors.textPrimary.withOpacity(0.3),
+          width: 1,
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -148,10 +152,10 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
             child: Container(
               margin: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: const Color(0xFFC4B6A6),
+                color: AppColors.surfaceDark,
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: Colors.black.withOpacity(0.05),
+                  color: AppColors.textPrimary.withOpacity(0.05),
                   width: 1,
                 ),
               ),
@@ -165,18 +169,18 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                           width: double.infinity,
                           height: double.infinity,
                           errorBuilder: (context, error, stackTrace) {
-                            return const Icon(
+                            return Icon(
                               Icons.play_circle_fill_rounded,
                               size: 60,
-                              color: Colors.white70,
+                              color: Colors.white.withOpacity(0.7),
                             );
                           },
                         ),
                       )
-                    : const Icon(
+                    : Icon(
                         Icons.play_circle_fill_rounded,
                         size: 60,
-                        color: Colors.white70,
+                        color: Colors.white.withOpacity(0.7),
                       ),
               ),
             ),
@@ -191,7 +195,7 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                   style: GoogleFonts.poppins(
                     fontSize: 10,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF81602D),
+                    color: AppColors.primary,
                   ),
                 ),
                 const SizedBox(height: 2),
@@ -200,7 +204,7 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                   style: GoogleFonts.poppins(
                     fontSize: 13,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
@@ -209,7 +213,7 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                   video['tutor']!,
                   style: GoogleFonts.poppins(
                     fontSize: 10,
-                    color: Colors.black45,
+                    color: AppColors.textSecondary.withOpacity(0.8),
                   ),
                 ),
               ],
@@ -229,13 +233,13 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color(0xFF81602D).withOpacity(0.5),
+          color: AppColors.primary.withOpacity(0.5),
           width: 1.2,
         ),
       ),
       child: Row(
         children: [
-          const Icon(Icons.search, size: 18, color: Color(0xFF81602D)),
+          const Icon(Icons.search, size: 18, color: AppColors.primary),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
@@ -245,7 +249,7 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
                 hintText: hint,
                 hintStyle: GoogleFonts.poppins(
                   fontSize: 13,
-                  color: Colors.grey[400],
+                  color: AppColors.textMuted.withOpacity(0.5),
                 ),
                 border: InputBorder.none,
                 isDense: true,
@@ -262,13 +266,17 @@ class _MediaVideoPembelajaranState extends State<MediaVideoPembelajaran> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(Icons.video_library_sharp, size: 80, color: Colors.grey[400]),
+          Icon(
+            Icons.video_library_sharp,
+            size: 80,
+            color: AppColors.textMuted.withOpacity(0.5),
+          ),
           const SizedBox(height: 16),
           Text(
             'Video tidak ditemukan',
             style: GoogleFonts.poppins(
               fontSize: 18,
-              color: Colors.grey[600],
+              color: AppColors.textMuted,
               fontWeight: FontWeight.w500,
             ),
           ),

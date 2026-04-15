@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkademikEBook extends StatefulWidget {
   final Function(String) onSearch;
@@ -76,7 +77,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -92,13 +93,13 @@ class _AkademikEBookState extends State<AkademikEBook> {
                     style: GoogleFonts.poppins(
                       fontSize: 36,
                       fontWeight: FontWeight.bold,
-                      color: const Color(0xFF2D1B10),
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
                     'Koleksi e-book jenjang SMA.',
                     style: GoogleFonts.poppins(
-                      color: Colors.black54,
+                      color: AppColors.textSecondary,
                       fontSize: 14,
                     ),
                   ),
@@ -157,12 +158,12 @@ class _AkademikEBookState extends State<AkademikEBook> {
     return Container(
       decoration: BoxDecoration(
         color: isEditMode
-            ? const Color(0xFFBCA88E).withOpacity(
+            ? AppColors.borderLight.withOpacity(
                 0.8,
               ) // Warna lebih gelap saat edit
-            : const Color.fromARGB(127, 255, 255, 255),
+            : Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color.fromARGB(76, 0, 0, 0), width: 1),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.3), width: 1),
       ),
       child: Stack(
         children: [
@@ -175,7 +176,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(15),
                     border: Border.all(
-                      color: const Color.fromARGB(13, 0, 0, 0),
+                      color: AppColors.textPrimary.withOpacity(0.05),
                       width: 1,
                     ),
                   ),
@@ -192,7 +193,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                                 return Icon(
                                   Icons.menu_book_rounded,
                                   size: 70,
-                                  color: Colors.grey[300],
+                                  color: AppColors.surfaceDark.withOpacity(0.3),
                                 );
                               },
                             ),
@@ -200,7 +201,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                         : Icon(
                             Icons.menu_book_rounded,
                             size: 70,
-                            color: Colors.grey[300],
+                            color: AppColors.surfaceDark.withOpacity(0.3),
                           ),
                   ),
                 ),
@@ -214,7 +215,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.bold,
                         fontSize: 13,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -229,7 +230,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                           ebook['size']!,
                           style: GoogleFonts.poppins(
                             fontSize: 10,
-                            color: Colors.grey[600],
+                            color: AppColors.textMuted,
                           ),
                         ),
                       ],
@@ -279,7 +280,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
             ),
           ],
         ),
-        child: Icon(icon, color: const Color(0xFF2D1B10), size: 28),
+        child: Icon(icon, color: AppColors.textPrimary, size: 28),
       ),
     );
   }
@@ -298,13 +299,13 @@ class _AkademikEBookState extends State<AkademikEBook> {
         style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.bold),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: isActive ? const Color(0xFF81602D) : Colors.white,
-        foregroundColor: isActive ? Colors.white : const Color(0xFF81602D),
+        backgroundColor: isActive ? AppColors.primary : Colors.white,
+        foregroundColor: isActive ? Colors.white : AppColors.primary,
         elevation: 0,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
-          side: BorderSide(color: const Color(0xFF81602D).withOpacity(0.3)),
+          side: BorderSide(color: AppColors.primary.withOpacity(0.3)),
         ),
       ),
     );
@@ -323,7 +324,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
             children: [
               const Icon(
                 Icons.warning_amber_rounded,
-                color: Colors.red,
+                color: AppColors.error,
                 size: 50,
               ),
               const SizedBox(height: 20),
@@ -354,7 +355,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
                     child: ElevatedButton(
                       onPressed: () => Navigator.pop(context),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.red,
+                        backgroundColor: AppColors.error,
                         foregroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
@@ -462,7 +463,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
               child: ElevatedButton(
                 onPressed: () => Navigator.pop(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF81602D),
+                  backgroundColor: AppColors.primary,
                   foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -525,13 +526,13 @@ class _AkademikEBookState extends State<AkademikEBook> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
-          color: const Color.fromARGB(127, 129, 96, 45),
+          color: AppColors.primary.withOpacity(0.5),
           width: 1.2,
         ),
       ),
       child: Row(
         children: [
-          const Icon(Icons.search, size: 18, color: Color(0xFF81602D)),
+          const Icon(Icons.search, size: 18, color: AppColors.primary),
           const SizedBox(width: 10),
           Expanded(
             child: TextField(
@@ -586,7 +587,7 @@ class _AkademikEBookState extends State<AkademikEBook> {
         style: GoogleFonts.poppins(
           fontSize: 9,
           fontWeight: FontWeight.bold,
-          color: const Color(0xFF81602D),
+          color: AppColors.primary,
         ),
       ),
     );

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
+import '../theme/app_colors.dart';
 import 'main_navigation_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _showCenterPopup(String message) {
     showDialog(
       context: context,
-      barrierColor: Colors.black26,
+      barrierColor: AppColors.textPrimary.withOpacity(0.2),
       barrierDismissible: false,
       builder: (BuildContext context) {
         Future.delayed(const Duration(milliseconds: 1500), () {
@@ -37,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
               decoration: BoxDecoration(
-                color: const Color(0xFF8B0000).withOpacity(0.9),
+                color: AppColors.error.withOpacity(0.9),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Column(
@@ -69,11 +70,11 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<void> _handleLogin() async {
     setState(() => _isLoading = true);
-    
+
     // HARDCODED BYPASS UNTUK GURU
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
-    
+
     if (email == 'guru@smartbee.com' && password == 'password123') {
       await Future.delayed(const Duration(milliseconds: 500));
       if (!mounted) return;
@@ -81,23 +82,54 @@ class _LoginScreenState extends State<LoginScreen> {
         context,
         PageRouteBuilder(
           pageBuilder: (context, animation, secondaryAnimation) =>
-              MainNavigationScreen(userData: {
-                'name': 'Dr. ANDI WIJAYA',
-                'role': 'guru',
-                'email': 'guru@smartbee.com',
-                'title': 'GURU MATEMATIKA'
-              }),
+              MainNavigationScreen(
+                userData: {
+                  'name': 'Dr. ANDI WIJAYA',
+                  'role': 'guru',
+                  'email': 'guru@smartbee.com',
+                  'title': 'GURU MATEMATIKA',
+                },
+              ),
           transitionDuration: const Duration(milliseconds: 300),
-          transitionsBuilder:
-              (context, animation, secondaryAnimation, child) {
-                return FadeTransition(
-                  opacity: CurvedAnimation(
-                    parent: animation,
-                    curve: Curves.easeOut,
-                  ),
-                  child: child,
-                );
-              },
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeOut,
+              ),
+              child: child,
+            );
+          },
+        ),
+      );
+      setState(() => _isLoading = false);
+      return;
+    }
+
+    if (email == 'admin@smartbee.com' && password == 'password123') {
+      await Future.delayed(const Duration(milliseconds: 500));
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) =>
+              MainNavigationScreen(
+                userData: {
+                  'name': 'Super Admin',
+                  'role': 'super_admin',
+                  'email': 'admin@smartbee.com',
+                },
+              ),
+          transitionDuration: const Duration(milliseconds: 300),
+          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+            return FadeTransition(
+              opacity: CurvedAnimation(
+                parent: animation,
+                curve: Curves.easeOut,
+              ),
+              child: child,
+            );
+          },
         ),
       );
       setState(() => _isLoading = false);
@@ -163,11 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFFA78D78),
-                  Color(0xFF6E473B),
-                  Color(0xFF291C0E),
-                ],
+                colors: AppColors.gradient,
               ),
             ),
           ),
@@ -179,7 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(
                   height: double.infinity,
                   decoration: const BoxDecoration(
-                    color: Color(0xFFE1D4C2),
+                    color: AppColors.background,
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(45),
                       bottomRight: Radius.circular(45),
@@ -196,7 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             style: GoogleFonts.poppins(
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
-                              color: const Color(0xFF2D1B10),
+                              color: AppColors.textPrimary,
                             ),
                           ),
                           const SizedBox(height: 10),
@@ -205,7 +233,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             textAlign: TextAlign.center,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
-                              color: const Color(0xFF5D4037),
+                              color: AppColors.textSecondary,
                             ),
                           ),
                           const SizedBox(height: 40),
@@ -260,16 +288,16 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       width: 320,
       decoration: BoxDecoration(
-        color: const Color(0xFFE1D4C2),
+        color: AppColors.background,
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: const Color(0xFF2D1B10), width: 1.5),
+        border: Border.all(color: AppColors.border, width: 1.5),
       ),
       child: TextField(
         controller: controller,
         obscureText: isPassword,
         decoration: InputDecoration(
           hintText: label,
-          hintStyle: GoogleFonts.poppins(color: Colors.black54),
+          hintStyle: GoogleFonts.poppins(color: AppColors.textSecondary),
           contentPadding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 15,
@@ -287,9 +315,9 @@ class _LoginScreenState extends State<LoginScreen> {
         width: 160,
         height: 48,
         decoration: BoxDecoration(
-          color: const Color(0xFFE1D4C2),
+          color: AppColors.background,
           borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: const Color(0xFF2D1B10), width: 1.5),
+          border: Border.all(color: AppColors.border, width: 1.5),
         ),
         child: Center(
           child: _isLoading
@@ -298,7 +326,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 20,
                   child: CircularProgressIndicator(
                     strokeWidth: 2,
-                    color: Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 )
               : Text(
@@ -306,7 +334,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     fontWeight: FontWeight.w600,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 ),
         ),
@@ -320,7 +348,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Row(
         children: [
           const Expanded(
-            child: Divider(color: Color(0xFF2D1B10), thickness: 1.5),
+            child: Divider(color: AppColors.border, thickness: 1.5),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -329,12 +357,15 @@ class _LoginScreenState extends State<LoginScreen> {
               width: 100,
               height: 100,
               fit: BoxFit.contain,
-              errorBuilder: (context, error, stackTrace) =>
-                  const Icon(Icons.shield, size: 50, color: Color(0xFF2D1B10)),
+              errorBuilder: (context, error, stackTrace) => const Icon(
+                Icons.shield,
+                size: 50,
+                color: AppColors.textPrimary,
+              ),
             ),
           ),
           const Expanded(
-            child: Divider(color: Color(0xFF2D1B10), thickness: 1.5),
+            child: Divider(color: AppColors.border, thickness: 1.5),
           ),
         ],
       ),

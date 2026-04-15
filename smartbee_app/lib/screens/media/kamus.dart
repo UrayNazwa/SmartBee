@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class MediaKamus extends StatefulWidget {
   const MediaKamus({super.key});
@@ -20,7 +21,7 @@ class _MediaKamusState extends State<MediaKamus> {
 
   // Penentuan gaya border global (Hitam opacity 0.4)
   final Border _globalBorder = Border.all(
-    color: Colors.black.withOpacity(0.4),
+    color: AppColors.textPrimary.withOpacity(0.4),
     width: 2,
   );
 
@@ -226,7 +227,7 @@ class _MediaKamusState extends State<MediaKamus> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFE1D9CD),
+      backgroundColor: AppColors.background,
       body: Row(
         children: [
           Expanded(
@@ -245,10 +246,10 @@ class _MediaKamusState extends State<MediaKamus> {
             Container(
               width: 80,
               decoration: BoxDecoration(
-                color: const Color(0xFFC7B7A3),
+                color: AppColors.surfaceDark,
                 border: Border(
                   left: BorderSide(
-                    color: Colors.black.withOpacity(0.4),
+                    color: AppColors.textPrimary.withOpacity(0.4),
                     width: 2,
                   ),
                 ),
@@ -331,7 +332,7 @@ class _MediaKamusState extends State<MediaKamus> {
         width: 350,
         height: 450,
         decoration: BoxDecoration(
-          color: const Color(0xFFB5A48B),
+          color: AppColors.borderLight,
           borderRadius: BorderRadius.circular(25),
           border: _globalBorder,
         ),
@@ -343,7 +344,9 @@ class _MediaKamusState extends State<MediaKamus> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
                   color: Colors.transparent,
-                  border: Border.all(color: Colors.black.withOpacity(0.2)),
+                  border: Border.all(
+                    color: AppColors.textPrimary.withOpacity(0.2),
+                  ),
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
@@ -355,7 +358,7 @@ class _MediaKamusState extends State<MediaKamus> {
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
                           return Container(
-                            color: Colors.grey[200],
+                            color: AppColors.surfaceLight,
                             child: Center(
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -363,14 +366,14 @@ class _MediaKamusState extends State<MediaKamus> {
                                   Icon(
                                     Icons.image_not_supported,
                                     size: 50,
-                                    color: Colors.grey[400],
+                                    color: AppColors.textMuted.withOpacity(0.5),
                                   ),
                                   const SizedBox(height: 10),
                                   Text(
                                     "File tidak terbaca:\n$imagePath",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: Colors.grey[600],
+                                      color: AppColors.textMuted,
                                       fontSize: 10,
                                     ),
                                   ),
@@ -382,7 +385,7 @@ class _MediaKamusState extends State<MediaKamus> {
                       ),
                       if (isLocked)
                         Container(
-                          color: Colors.black45,
+                          color: AppColors.textPrimary.withOpacity(0.45),
                           child: const Center(
                             child: Icon(
                               Icons.lock,
@@ -410,8 +413,8 @@ class _MediaKamusState extends State<MediaKamus> {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
               decoration: BoxDecoration(
-                // PERUBAHAN DISINI: Warna diubah dari putih menjadi krem (Color(0xFFE1D9CD))
-                color: const Color(0xFFE1D9CD),
+                // PERUBAHAN DISINI: Warna diubah dari putih menjadi krem (AppColors.background)
+                color: AppColors.background,
                 borderRadius: BorderRadius.circular(10),
                 border: _globalBorder,
               ),
@@ -434,7 +437,7 @@ class _MediaKamusState extends State<MediaKamus> {
       width: 60,
       height: 60,
       decoration: BoxDecoration(
-        color: const Color(0xFFE1D9CD),
+        color: AppColors.background,
         shape: BoxShape.circle,
         border: _globalBorder,
       ),
@@ -504,7 +507,7 @@ class _MediaKamusState extends State<MediaKamus> {
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: const Color(0xFFB5A48B),
+          color: AppColors.borderLight,
           borderRadius: BorderRadius.circular(20),
           border: _globalBorder,
         ),
@@ -520,9 +523,11 @@ class _MediaKamusState extends State<MediaKamus> {
                 width: double.infinity,
                 padding: const EdgeInsets.all(15),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFE1D9CD).withOpacity(0.6),
+                  color: AppColors.background.withOpacity(0.6),
                   borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: Colors.black.withOpacity(0.1)),
+                  border: Border.all(
+                    color: AppColors.textPrimary.withOpacity(0.1),
+                  ),
                 ),
                 child: isInput
                     ? TextField(
@@ -541,8 +546,8 @@ class _MediaKamusState extends State<MediaKamus> {
                               : _translatedText,
                           style: TextStyle(
                             color: _translatedText.isEmpty
-                                ? Colors.black45
-                                : Colors.black,
+                                ? AppColors.textPrimary.withOpacity(0.45)
+                                : AppColors.textPrimary,
                             fontSize: 16,
                           ),
                         ),
@@ -580,9 +585,9 @@ class _MediaKamusState extends State<MediaKamus> {
             ElevatedButton(
               onPressed: () => _showContohSoalDialog(),
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xFFB5A48B),
+                backgroundColor: AppColors.borderLight,
                 side: BorderSide(
-                  color: Colors.black.withOpacity(0.4),
+                  color: AppColors.textPrimary.withOpacity(0.4),
                   width: 2,
                 ),
                 shape: RoundedRectangleBorder(
@@ -596,7 +601,7 @@ class _MediaKamusState extends State<MediaKamus> {
               child: const Text(
                 'Contoh Soal',
                 style: TextStyle(
-                  color: Colors.black,
+                  color: AppColors.textPrimary,
                   fontWeight: FontWeight.bold,
                   fontSize: 18,
                 ),
@@ -646,7 +651,7 @@ class _MediaKamusState extends State<MediaKamus> {
       width: 200,
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: BoxDecoration(
-        color: const Color(0xFFB5A48B),
+        color: AppColors.borderLight,
         borderRadius: BorderRadius.circular(10),
         border: _globalBorder,
       ),
@@ -666,9 +671,12 @@ class _MediaKamusState extends State<MediaKamus> {
       height: 180,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: const Color(0xFFB5A48B),
+        color: AppColors.borderLight,
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Colors.black.withOpacity(0.4), width: 3),
+        border: Border.all(
+          color: AppColors.textPrimary.withOpacity(0.4),
+          width: 3,
+        ),
       ),
       child: isInput
           ? TextField(
@@ -685,8 +693,8 @@ class _MediaKamusState extends State<MediaKamus> {
                 _translatedKsaText.isEmpty ? hint : _translatedKsaText,
                 style: TextStyle(
                   color: _translatedKsaText.isEmpty
-                      ? Colors.black45
-                      : Colors.black,
+                      ? AppColors.textPrimary.withOpacity(0.45)
+                      : AppColors.textPrimary,
                   fontSize: 18,
                 ),
               ),
@@ -698,10 +706,13 @@ class _MediaKamusState extends State<MediaKamus> {
     showDialog(
       context: context,
       builder: (context) => Dialog(
-        backgroundColor: const Color(0xFFD2C1A8),
+        backgroundColor: AppColors.surfaceDark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.black.withOpacity(0.4), width: 2),
+          side: BorderSide(
+            color: AppColors.textPrimary.withOpacity(0.4),
+            width: 2,
+          ),
         ),
         child: Container(
           width: 500,
@@ -753,7 +764,7 @@ class _MediaKamusState extends State<MediaKamus> {
                           color: Colors.white.withOpacity(0.5),
                           borderRadius: BorderRadius.circular(10),
                           border: Border.all(
-                            color: Colors.black.withOpacity(0.2),
+                            color: AppColors.textPrimary.withOpacity(0.2),
                           ),
                         ),
                         child: Text(
@@ -851,10 +862,13 @@ class _MediaKamusState extends State<MediaKamus> {
     showDialog(
       context: context,
       builder: (context) => Dialog(
-        backgroundColor: const Color(0xFFD2C1A8),
+        backgroundColor: AppColors.surfaceDark,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(color: Colors.black.withOpacity(0.4), width: 2),
+          side: BorderSide(
+            color: AppColors.textPrimary.withOpacity(0.4),
+            width: 2,
+          ),
         ),
         child: Container(
           width: 450,
@@ -878,6 +892,18 @@ class _MediaKamusState extends State<MediaKamus> {
                   itemBuilder: (context, index) => ListTile(
                     title: Text(
                       "${listKata[index]['word']} - ${listKata[index]['meaning']}",
+                    ),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.edit, size: 18, color: AppColors.info),
+                        const SizedBox(width: 8),
+                        const Icon(
+                          Icons.delete,
+                          size: 18,
+                          color: AppColors.error,
+                        ),
+                      ],
                     ),
                   ),
                 ),

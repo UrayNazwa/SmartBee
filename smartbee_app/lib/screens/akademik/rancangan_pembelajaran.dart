@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkademikRancanganScreen extends StatefulWidget {
   const AkademikRancanganScreen({super.key});
@@ -15,7 +16,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: SingleChildScrollView(
         child: Column(
@@ -32,12 +33,14 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                       style: GoogleFonts.poppins(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: const Color(0xFF2D1B10),
+                        color: AppColors.textPrimary,
                       ),
                     ),
                     Text(
                       'Jenjang SMA',
-                      style: GoogleFonts.poppins(color: Colors.black54),
+                      style: GoogleFonts.poppins(
+                        color: AppColors.textSecondary,
+                      ),
                     ),
                   ],
                 ),
@@ -50,10 +53,10 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
             Container(
               padding: const EdgeInsets.all(25),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(127, 255, 255, 255),
+                color: Colors.white.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                  color: const Color.fromARGB(76, 0, 0, 0),
+                  color: AppColors.textPrimary.withOpacity(0.3),
                   width: 1,
                 ),
               ),
@@ -71,6 +74,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                         style: GoogleFonts.poppins(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
+                          color: AppColors.textPrimary,
                         ),
                       ),
                     ],
@@ -162,7 +166,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
   Widget _buildPeriodToggle() {
     return Container(
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Row(
@@ -173,7 +177,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
                 color: _activePeriod == 'Mingguan'
-                    ? const Color.fromARGB(204, 129, 96, 45)
+                    ? AppColors.primary.withOpacity(0.8)
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -183,7 +187,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                   fontWeight: FontWeight.bold,
                   color: _activePeriod == 'Mingguan'
                       ? Colors.white
-                      : Colors.black,
+                      : AppColors.textPrimary,
                 ),
               ),
             ),
@@ -194,7 +198,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
               decoration: BoxDecoration(
                 color: _activePeriod == 'Bulanan'
-                    ? const Color.fromARGB(204, 129, 96, 45)
+                    ? AppColors.primary.withOpacity(0.8)
                     : Colors.transparent,
                 borderRadius: BorderRadius.circular(12),
               ),
@@ -204,7 +208,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                   fontWeight: FontWeight.bold,
                   color: _activePeriod == 'Bulanan'
                       ? Colors.white
-                      : Colors.black,
+                      : AppColors.textPrimary,
                 ),
               ),
             ),
@@ -219,9 +223,9 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
       width: double.infinity,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: const Color.fromARGB(102, 0, 0, 0), width: 1),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.4), width: 1),
       ),
       child: Row(
         children: [
@@ -235,10 +239,10 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color(0xFFD9D9D9),
+                    color: AppColors.surfaceDark,
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
-                      color: const Color.fromARGB(25, 0, 0, 0),
+                      color: AppColors.textPrimary.withOpacity(0.1),
                       width: 1,
                     ),
                   ),
@@ -263,20 +267,20 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                   style: GoogleFonts.poppins(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 ),
                 Text(
                   'Pengalaman belajar khusus untuk jenjang SMA.',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
-                    color: Colors.black54,
+                    color: AppColors.textSecondary,
                   ),
                 ),
               ],
             ),
           ),
-          Icon(Icons.rocket_launch, size: 100, color: Colors.grey[300]),
+          Icon(Icons.rocket_launch, size: 100, color: AppColors.surfaceDark.withOpacity(0.5)),
         ],
       ),
     );
@@ -292,12 +296,12 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
               width: 8,
               height: 8,
               decoration: BoxDecoration(
-                color: Colors.brown[300],
+                color: AppColors.primaryLight,
                 shape: BoxShape.circle,
-                border: Border.all(color: Colors.brown, width: 1),
+                border: Border.all(color: AppColors.primary, width: 1),
               ),
             ),
-            Container(width: 2, height: 100, color: Colors.grey[300]),
+            Container(width: 2, height: 100, color: AppColors.surfaceDark.withOpacity(0.5)),
           ],
         ),
         const SizedBox(width: 15),
@@ -310,6 +314,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.bold,
                   fontSize: 16,
+                  color: AppColors.textPrimary,
                 ),
               ),
               const SizedBox(height: 15),
@@ -322,13 +327,13 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
                       color: item['done']
-                          ? const Color(0xFF718664)
-                          : Colors.grey[300],
+                          ? AppColors.success
+                          : AppColors.surfaceDark.withOpacity(0.5),
                       borderRadius: BorderRadius.circular(15),
                       border: Border.all(
                         color: item['done']
-                            ? const Color.fromARGB(127, 113, 134, 100)
-                            : const Color.fromARGB(13, 0, 0, 0),
+                            ? AppColors.success.withOpacity(0.5)
+                            : AppColors.textPrimary.withOpacity(0.05),
                         width: 1.5,
                       ),
                     ),
@@ -345,7 +350,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                                 fontWeight: FontWeight.bold,
                                 color: item['done']
                                     ? Colors.white
-                                    : Colors.black,
+                                    : AppColors.textPrimary,
                               ),
                             ),
                             if (item['done'])
@@ -363,7 +368,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                             fontSize: 13,
                             color: item['done']
                                 ? Colors.white70
-                                : Colors.black54,
+                                : AppColors.textSecondary,
                           ),
                         ),
                       ],
@@ -395,9 +400,9 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
     return Container(
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: const Color.fromARGB(76, 0, 0, 0), width: 1),
+        border: Border.all(color: AppColors.textPrimary.withOpacity(0.3), width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -407,7 +412,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
               Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.grey[300],
+                  color: AppColors.surfaceDark.withOpacity(0.5),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(Icons.priority_high, size: 20),
@@ -418,6 +423,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
                 ),
               ),
             ],
@@ -435,7 +441,7 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
         margin: const EdgeInsets.only(right: 15),
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(204, 188, 168, 142),
+          color: AppColors.surfaceDark.withOpacity(0.8),
           borderRadius: BorderRadius.circular(15),
         ),
         child: Column(
@@ -447,13 +453,14 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                 fontSize: 14,
                 fontStyle: FontStyle.italic,
                 fontWeight: FontWeight.w500,
+                color: AppColors.textPrimary,
               ),
             ),
             const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(127, 255, 255, 255),
+                color: Colors.white.withOpacity(0.5),
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Row(
@@ -464,13 +471,14 @@ class _AkademikRancanganScreenState extends State<AkademikRancanganScreen> {
                     style: GoogleFonts.poppins(
                       fontSize: 12,
                       fontWeight: FontWeight.bold,
+                      color: AppColors.textPrimary,
                     ),
                   ),
                   Text(
                     data['waktu']!,
                     style: GoogleFonts.poppins(
                       fontSize: 10,
-                      color: Colors.black54,
+                      color: AppColors.textSecondary,
                     ),
                   ),
                 ],

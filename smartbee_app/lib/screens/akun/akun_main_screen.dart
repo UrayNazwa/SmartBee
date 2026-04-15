@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkunMainScreen extends StatelessWidget {
   final Map<String, dynamic> userData;
@@ -16,7 +17,7 @@ class AkunMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: SingleChildScrollView(
         child: Column(
@@ -47,11 +48,11 @@ class AkunMainScreen extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(204, 129, 96, 45),
+        color: AppColors.primary.withOpacity(0.8),
         borderRadius: BorderRadius.circular(20),
         // Disamakan dengan border hitam tipis frame lainnya
         border: Border.all(
-          color: const Color.fromARGB(76, 0, 0, 0), 
+          color: AppColors.textPrimary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -64,7 +65,7 @@ class AkunMainScreen extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
               border: Border.all(
-                color: const Color.fromARGB(127, 255, 255, 255),
+                color: Colors.white.withOpacity(0.5),
                 width: 2,
               ),
             ),
@@ -78,12 +79,12 @@ class AkunMainScreen extends StatelessWidget {
                         return const Icon(
                           Icons.person,
                           size: 80,
-                          color: Color(0xFF81602D),
+                          color: AppColors.primary,
                         );
                       },
                     ),
                   )
-                : const Icon(Icons.person, size: 80, color: Color(0xFF81602D)),
+                : const Icon(Icons.person, size: 80, color: AppColors.primary),
           ),
           const SizedBox(width: 30),
           Expanded(
@@ -96,7 +97,7 @@ class AkunMainScreen extends StatelessWidget {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: const Color.fromARGB(76, 255, 255, 255),
+                    color: Colors.white.withOpacity(0.3),
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: Text(
@@ -121,7 +122,7 @@ class AkunMainScreen extends StatelessWidget {
                   userData['class'] ?? 'KELAS 12 - A',
                   style: GoogleFonts.poppins(
                     fontSize: 18,
-                    color: Colors.white70,
+                    color: Colors.white.withOpacity(0.7),
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -141,7 +142,7 @@ class AkunMainScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         // PERBAIKAN: Border disamakan dengan frame Detail Nilai dan Password
         border: Border.all(
-          color: const Color.fromARGB(76, 0, 0, 0),
+          color: AppColors.textPrimary.withOpacity(0.3),
           width: 1,
         ),
       ),
@@ -153,7 +154,7 @@ class AkunMainScreen extends StatelessWidget {
             style: GoogleFonts.poppins(
               fontSize: 24,
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF2D1B10),
+              color: AppColors.textPrimary,
             ),
           ),
           const SizedBox(height: 30),
@@ -196,10 +197,10 @@ class AkunMainScreen extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: AppColors.surfaceDark.withOpacity(0.3),
               shape: BoxShape.circle,
             ),
-            child: Icon(icon, color: Colors.grey[700]),
+            child: Icon(icon, color: AppColors.textMuted),
           ),
           const SizedBox(width: 15),
           Column(
@@ -209,7 +210,7 @@ class AkunMainScreen extends StatelessWidget {
                 label,
                 style: GoogleFonts.poppins(
                   fontSize: 10,
-                  color: Colors.grey[600],
+                  color: AppColors.textMuted,
                 ),
               ),
               Text(
@@ -217,7 +218,7 @@ class AkunMainScreen extends StatelessWidget {
                 style: GoogleFonts.poppins(
                   fontSize: 14,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D1B10),
+                  color: AppColors.textPrimary,
                 ),
               ),
             ],
@@ -237,11 +238,11 @@ class AkunMainScreen extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
         decoration: BoxDecoration(
-          color: const Color(0xFF81602D).withOpacity(0.8),
+          color: AppColors.primary.withOpacity(0.8),
           borderRadius: BorderRadius.circular(15),
           // Tambahkan border juga agar selaras dengan frame di atasnya
           border: Border.all(
-            color: const Color.fromARGB(76, 0, 0, 0),
+            color: AppColors.textPrimary.withOpacity(0.3),
             width: 1,
           ),
         ),

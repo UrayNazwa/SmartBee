@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AkunUbahPassword extends StatefulWidget {
   final VoidCallback onBack;
@@ -105,11 +106,11 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
           width: 450,
           padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
-            color: const Color(0xFFF5F1EB),
+            color: AppColors.surfaceLight,
             borderRadius: BorderRadius.circular(25),
             // Border pada popup agar konsisten
             border: Border.all(
-              color: const Color.fromARGB(76, 0, 0, 0),
+              color: AppColors.textPrimary.withOpacity(0.3),
               width: 1,
             ),
           ),
@@ -134,7 +135,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
                         widget.onConfirmSuccess();
                       },
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF27AE60),
+                        backgroundColor: AppColors.success,
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -155,7 +156,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
                     child: ElevatedButton(
                       onPressed: () => Navigator.pop(context),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFFC0392B),
+                        backgroundColor: AppColors.error,
                         foregroundColor: Colors.white,
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
@@ -183,7 +184,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFFE1D9CD),
+      color: AppColors.background,
       padding: const EdgeInsets.all(25),
       child: Column(
         children: [
@@ -200,7 +201,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
                   style: GoogleFonts.poppins(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF2D1B10),
+                    color: AppColors.textPrimary,
                   ),
                 ),
               ),
@@ -213,11 +214,11 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
               child: Container(
                 padding: const EdgeInsets.all(40),
                 decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.5),
+                  color: Colors.white.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(20),
                   // PERBAIKAN: Border hitam disamakan dengan frame lainnya
                   border: Border.all(
-                    color: const Color.fromARGB(76, 0, 0, 0),
+                    color: AppColors.textPrimary.withOpacity(0.3),
                     width: 1,
                   ),
                 ),
@@ -254,7 +255,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
                         child: ElevatedButton(
                           onPressed: _showConfirmPopup,
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF81602D).withOpacity(0.8),
+                            backgroundColor: AppColors.primary.withOpacity(0.8),
                             foregroundColor: Colors.white,
                             padding: const EdgeInsets.symmetric(
                               horizontal: 20,
@@ -299,7 +300,7 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
           style: GoogleFonts.poppins(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            color: const Color(0xFF2D1B10),
+            color: AppColors.textPrimary,
           ),
         ),
         const SizedBox(height: 10),
@@ -309,12 +310,16 @@ class _AkunUbahPasswordState extends State<AkunUbahPassword> {
           obscureText: true,
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: GoogleFonts.poppins(color: Colors.grey),
-            enabledBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.black38),
+            hintStyle: GoogleFonts.poppins(color: AppColors.textMuted),
+            enabledBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.textPrimary.withOpacity(0.38),
+              ),
             ),
-            focusedBorder: const UnderlineInputBorder(
-              borderSide: BorderSide(color: Color(0x66000000)),
+            focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                color: AppColors.textPrimary.withOpacity(0.4),
+              ),
             ),
             errorText: errorText,
           ),

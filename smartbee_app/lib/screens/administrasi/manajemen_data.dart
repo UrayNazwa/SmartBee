@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../theme/app_colors.dart';
 
 class AdministrasiManajemenData extends StatefulWidget {
   const AdministrasiManajemenData({super.key});
@@ -19,7 +20,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
     return Stack(
       children: [
         Container(
-          color: const Color(0xFFE1D9CD),
+          color: AppColors.background,
           padding: const EdgeInsets.all(25),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,17 +42,17 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
             child: Container(
               width: 150,
               decoration: BoxDecoration(
-                color: const Color(0xFFE8E1D9),
+                color: AppColors.surfaceLight,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: AppColors.textPrimary.withOpacity(0.1),
                     blurRadius: 10,
                     offset: const Offset(0, 5),
                   ),
                 ],
                 border: Border.all(
-                  color: const Color.fromARGB(51, 0, 0, 0),
+                  color: AppColors.textPrimary.withOpacity(0.2),
                   width: 1,
                 ),
               ),
@@ -80,12 +81,12 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
               style: GoogleFonts.poppins(
                 fontSize: 36,
                 fontWeight: FontWeight.bold,
-                color: const Color(0xFF2D1B10),
+                color: AppColors.textPrimary,
               ),
             ),
             Text(
               'Daftar rekan belajar di jenjang SMA.',
-              style: GoogleFonts.poppins(color: Colors.black54),
+              style: GoogleFonts.poppins(color: AppColors.textSecondary),
             ),
           ],
         ),
@@ -97,7 +98,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
   Widget _buildNavbar() {
     return Container(
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -127,7 +128,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: isActive
-              ? const Color.fromARGB(204, 129, 96, 45)
+              ? AppColors.primary.withOpacity(0.8)
               : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
@@ -135,7 +136,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
           title,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
-            color: isActive ? Colors.white : Colors.black,
+            color: isActive ? Colors.white : AppColors.textPrimary,
           ),
         ),
       ),
@@ -157,10 +158,10 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
         padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: BoxDecoration(
           color: isSelected
-              ? const Color(0xFF81602D).withOpacity(0.1)
+              ? AppColors.primary.withOpacity(0.1)
               : Colors.transparent,
-          border: const Border(
-            bottom: BorderSide(color: Colors.black12, width: 0.5),
+          border: Border(
+            bottom: BorderSide(color: AppColors.textPrimary.withOpacity(0.1), width: 0.5),
           ),
         ),
         child: Text(
@@ -168,7 +169,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.bold,
-            color: isSelected ? const Color(0xFF81602D) : Colors.black,
+            color: isSelected ? AppColors.primary : AppColors.textPrimary,
           ),
         ),
       ),
@@ -192,7 +193,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
           child: Container(
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(127, 255, 255, 255),
+              color: Colors.white.withOpacity(0.5),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -209,6 +210,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                           style: GoogleFonts.poppins(
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ],
@@ -219,7 +221,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(204, 129, 96, 45),
+                        color: AppColors.primary.withOpacity(0.8),
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Text(
@@ -245,7 +247,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
           child: Container(
             padding: const EdgeInsets.all(25),
             decoration: BoxDecoration(
-              color: const Color.fromARGB(204, 113, 134, 100),
+              color: AppColors.success.withOpacity(0.8),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -253,7 +255,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
               children: [
                 Row(
                   children: [
-                    const Icon(Icons.person, color: Colors.black),
+                    const Icon(Icons.person, color: Colors.white),
                     const SizedBox(width: 10),
                     Container(
                       padding: const EdgeInsets.symmetric(
@@ -261,7 +263,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(76, 255, 255, 255),
+                        color: Colors.white.withOpacity(0.3),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Text(
@@ -269,6 +271,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -303,8 +306,8 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
   Widget _buildTopStudentItem(Map<String, String> student) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 15),
-      decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Colors.black12)),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: AppColors.textPrimary.withOpacity(0.1))),
       ),
       child: Row(
         children: [
@@ -312,13 +315,16 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
             width: 35,
             height: 35,
             decoration: BoxDecoration(
-              color: const Color(0xFFBCA88E),
+              color: AppColors.surfaceDark,
               borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
                 student['rank']!,
-                style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.textPrimary,
+                ),
               ),
             ),
           ),
@@ -326,14 +332,17 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
           Expanded(
             child: Text(
               student['name']!,
-              style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+              style: GoogleFonts.poppins(
+                fontWeight: FontWeight.bold,
+                color: AppColors.textPrimary,
+              ),
             ),
           ),
           Text(
             student['score']!,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.bold,
-              color: const Color(0xFF81602D),
+              color: AppColors.primary,
             ),
           ),
         ],
@@ -377,7 +386,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
     return Container(
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
-        color: const Color.fromARGB(127, 255, 255, 255),
+        color: Colors.white.withOpacity(0.5),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -390,7 +399,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                 style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
-                  color: const Color(0xFF2D1B10),
+                  color: AppColors.textPrimary,
                 ),
               ),
               Container(
@@ -399,7 +408,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                   vertical: 5,
                 ),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF81602D).withOpacity(0.1),
+                  color: AppColors.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
@@ -407,7 +416,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                   style: GoogleFonts.poppins(
                     fontSize: 12,
                     fontWeight: FontWeight.bold,
-                    color: const Color(0xFF81602D),
+                    color: AppColors.primary,
                   ),
                 ),
               ),
@@ -421,7 +430,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
               _tableHeader('Kelas', 1),
             ],
           ),
-          const Divider(thickness: 1),
+          Divider(thickness: 1, color: AppColors.textPrimary.withOpacity(0.1)),
           Expanded(
             child: ListView.builder(
               itemCount: students.length,
@@ -429,8 +438,8 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                 final s = students[index];
                 return Container(
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  decoration: const BoxDecoration(
-                    border: Border(bottom: BorderSide(color: Colors.black12)),
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(color: AppColors.textPrimary.withOpacity(0.05))),
                   ),
                   child: Row(
                     children: [
@@ -441,6 +450,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ),
@@ -452,6 +462,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ),
@@ -463,6 +474,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
                           style: GoogleFonts.poppins(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
+                            color: AppColors.textPrimary,
                           ),
                         ),
                       ),
@@ -486,7 +498,7 @@ class _AdministrasiManajemenDataState extends State<AdministrasiManajemenData> {
         style: GoogleFonts.poppins(
           fontSize: 18,
           fontWeight: FontWeight.bold,
-          color: Colors.black,
+          color: AppColors.textPrimary,
         ),
       ),
     );

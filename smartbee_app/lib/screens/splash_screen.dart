@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../theme/app_colors.dart';
 import '../widgets/logo_widget.dart';
 import 'login_screen.dart';
 
@@ -26,7 +27,7 @@ class SplashScreen extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Color(0xFF2D1B10), Color(0xFF5D4037)],
+              colors: [AppColors.textPrimary, AppColors.textSecondary],
             ),
           ),
           child: Column(
